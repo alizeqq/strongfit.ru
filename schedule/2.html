@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta name="_token" content="kdIqHjtBUBemTxOYUFSzqOHhO8ohHXgVu7i3EcdK">
+<link rel="shortcut icon" href="../img/favicon.ico">
+
+<link rel="stylesheet" href="../css/common.min.css">
+
+
+	<link rel="stylesheet" href="../css/schedule_page.min.css">
+	<title>Расписание</title>
+</head>
+
+
+<style>
+	
+#participants {
+    display: flex;
+    flex-direction: column; /* Каждый набор label и input на новой строке */
+    gap: 5px; /* Отступ между строками */
+    margin-top: 10px;
+}
+
+.participant-row {
+    display: flex; /* Гибкое расположение для каждого ряда */
+    align-items: center; /* Центрирование по вертикали */
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+.participant-row label {
+    margin-right: 10px; /* Отступ справа от label */
+    width: 30px; /* Ширина label для чисел */
+}
+
+.participant-row input {
+    flex-grow: 1; /* Поле ввода займет оставшееся пространство */
+    padding: 5px; /* Внутренний отступ для input */
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+.peopleCout {
+	margin-top:10px;
+	}
+	
+</style>
+<body class="no-transition-all">
+	<div class="page">
+		<header class="header page__header">
+	<div class="header__inner">
+		<div class="header__cont">
+			<div class="h-menu-m">
+				<div class="bar">
+					<span class="bar__row"></span>
+				</div>
+				<nav class="h-menu-m__nav">
+
+					
+						
+					
+					<p class="h-menu-m__item">
+						<a class="h-menu-m__link h-menu-m__link_about" href="../info.html">О клубе</a>
+					</p>
+					<p class="h-menu-m__item">
+						<a class="h-menu-m__link h-menu-m__link_options" href="../gym.html">Услуги</a>
+					</p>
+					<p class="h-menu-m__item">
+						<a class="h-menu-m__link h-menu-m__link_schedule" href="1.html">Расписание</a>
+					</p>
+					<p class="h-menu-m__item">
+						<a class="h-menu-m__link h-menu-m__link_trainers" href="../trainers.html">Тренеры</a>
+					</p>
+					<p class="h-menu-m__item">
+						<a class="h-menu-m__link h-menu-m__link_cards" href="../cards.html">Клубные карты</a>
+					</p>
+					<p class="h-menu-m__item">
+						<a class="h-menu-m__link h-menu-m__link_contacts" href="../contacts.html">Контакты</a>
+					</p>
+			
+                        <!-- Authentication Links -->
+                                                                                    <p class="h-menu-m__item">
+                                    <a class="h-menu-m__link h-menu-m__link_contacts" href="../login.html">Войти</a>
+                                </p>
+                            
+                                                            <p class="h-menu-m__item">
+                                    <a class="h-menu-m__link h-menu-m__link_contacts" href="../register.html">Зарегистрироваться</a>
+                               </p>
+                                                                          				</nav>
+			</div>
+			<a class="h-logo-mob" href="../index.html">
+				<img class="h-logo-mob__img" src="../img/logo.png" alt="Логотип">
+			</a>
+			<a class="h-phone" href="tel:+74954154010">
+				<img class="h-phone__img" src="../img/phone.png" alt="Телефон">
+			</a>
+			<a class="h-logo" href="../index.html">
+				<img class="h-logo__img" src="../img/header__logo.png" alt="Лого">
+			</a>
+			<nav class="h-menu">
+
+				
+					
+				
+				<p class="h-menu__item">
+					<a class="h-menu__link h-menu__link_about" href="../info.html">О клубе</a>
+				</p>
+				<p class="h-menu__item">
+					<a a class="h-menu__link h-menu__link_options" href="../gym.html">Услуги</a>
+				</p>
+				<p class="h-menu__item">
+					<a class="h-menu__link h-menu__link_schedule page-nav_active" href="1.html">Расписание</a>
+				</p>
+				<p class="h-menu__item">
+					<a class="h-menu__link h-menu__link_trainers" href="../trainers.html">Тренеры</a>
+				</p>
+				<p class="h-menu__item">
+					<a class="h-menu__link h-menu__link_cards" href="../cards.html">Клубные карты</a>
+				</p>
+				<p class="h-menu__item">
+					<a class="h-menu__link h-menu__link_contacts" href="../contacts.html">Контакты</a>
+				</p>
+				 				
+				                                                            <p class="h_menu__item_login">
+                                    <a class="h-menu__link h-menu__link " href="../login.html">Войти</a></br>
+                                </p>
+                            
+                           
+							                <p class="h-menu__item new-black-all-page">
+					<button class="h-application__btn" >Заявка на карту</button>
+				</p>
+			</nav>
+		</div>
+	</div>
+</header>
+
+
+		<div class="top page__top">
+			<div class="top__inner">
+				<h1 class="title top__title">Расписание</h1>
+				</p>
+				<!--
+				<h2 style="color:#9c0c01;">31 декабря ,1 и 2 января клуб будет закрыт в связи с Новогодними праздниками!</h2> </p>
+				-->
+				<p style="padding-bottom: 40px; display: block;">
+				<span style="color: white; font-size: 110%;"> фитнес-клуб на Холма</span>
+				
+				<nav class="pages-nav top__nav">
+					<div class="pages-nav__items">
+						<p class="pages-nav__item 0">
+							<a class="pages-nav__link" href="1.html">Групповые программы</a>
+						</p>
+						<p class="pages-nav__item pages-nav__item_active">
+							<a class="pages-nav__link" href="2.html">Бассейн</a>
+						</p>
+						<p class="pages-nav__item 0">
+							<a class="pages-nav__link" href="3.html">Детский клуб</a>
+						</p>
+						<p class="pages-nav__item 0">
+							<a class="pages-nav__link" href="4.html">Детский бассейн</a>
+						</p>
+					</div>
+				</nav>
+			</div>
+		</div>
+		
+					<div class="main">
+			<div class="main__wrapper">
+				<p class="symbolsInfo">
+					$ - коммерческий класс
+				</p>
+				<div class="scheduleTop">
+					<div class="filter">
+						<span class="fa fa-angle-down filter__angle"></span>
+						<div class="filter__inner">
+							<p class="filter__item filter__item_schedule filter__item_active" data-section="basis">Все занятия</p>
+														<p class="filter__item filter__item_schedule" data-section="41">Aqua Beginners</p>
+														<p class="filter__item filter__item_schedule" data-section="42">Aqua Freestyle</p>
+														<p class="filter__item filter__item_schedule" data-section="43">Aqua Upper Body</p>
+														<p class="filter__item filter__item_schedule" data-section="44">Aqua Tone</p>
+														<p class="filter__item filter__item_schedule" data-section="45">Aqua Interval</p>
+														<p class="filter__item filter__item_schedule" data-section="46">Swimming All</p>
+														<p class="filter__item filter__item_schedule" data-section="47">Swimming Proff</p>
+														<p class="filter__item filter__item_schedule" data-section="48">Aqua Mama</p>
+														<p class="filter__item filter__item_schedule" data-section="49">Aqua Good Morning</p>
+														<p class="filter__item filter__item_schedule" data-section="50">Aqua Noodles</p>
+														<p class="filter__item filter__item_schedule" data-section="51">Aqua Shape</p>
+														<p class="filter__item filter__item_schedule" data-section="52">Aqua Circuit</p>
+														<p class="filter__item filter__item_schedule" data-section="53">Aqua Jogging</p>
+														<p class="filter__item filter__item_schedule" data-section="117">$Swim</p>
+														<p class="filter__item filter__item_schedule" data-section="118">$Мама+малыш</p>
+														<p class="filter__item filter__item_schedule" data-section="126">$ Синхронное плавание</p>
+													</div>
+					</div>
+				
+					
+					<div class="print">
+						<button class="print__btn">
+							<a href="2.html#" onclick="window.print();return false;">Распечатать</a>
+						</button>
+					</div>
+				</div>
+				<br>
+				<div class="schedule__overlay">
+					<table class="schedule active">
+						<thead class="scheduleHead">
+							<tr class="scheduleHead__row">
+								<th class="scheduleHead__item time"><span class="fa fa-clock-o"></span></th>
+								<th class="scheduleHead__item today">Понедельник</th>
+								<th class="scheduleHead__item">Вторник</th>
+								<th class="scheduleHead__item">Среда</th>
+								<th class="scheduleHead__item">Четверг</th>
+								<th class="scheduleHead__item">Пятница</th>
+								<th class="scheduleHead__item">Суббота</th>
+								<th class="scheduleHead__item">Воскресенье</th>
+							</tr>
+						</thead>
+						<tbody class="scheduleBody">
+														<tr data-label="8:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 8:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="9:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 9:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="10:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 10:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										    							            <div class="trainingItem" data-section="49">
+							                <div class="trainingItem__wrapper">
+							                    <h2 class="trainingItem__title">Aqua Good Morning
+								                    
+							                								                	</h2>
+							                    <p class="trainingItem__trainer">Дмитрий Степанов</p>
+							                    <p class="trainingItem__time">10:15-11:00</p>
+							                    <p class="trainingItem__gym">бассейн</p>
+							                    		
+							                </div>
+							                		
+							                <div class="trainingItemMore">
+							                	<div class="trainingItemMore__wrapper">
+							                		<div class="trainingItemMore__content">
+							                			<div class="trainingItemMore__close"></div>
+							                			<p class="trainingItemMore__title">
+							                				Aqua Good Morning
+							                			</p>
+							                			<p class="trainingItemMore__time">
+							                				<span class="trainingItemMore__time_time">Время тренировки: 10:15 - 11:00</span>
+							                			</p>
+							                				
+							                			</p>
+							                			<div class="trainingItemMoreMain">
+							                				<div class="trainingItemMoreMain__img"> 
+							                					<img class="trainingItemMoreMain__img_img" src="../images/1729239882.jpg" alt="Тренер">
+							                				</div>
+							                				<div class="trainingItemMoreMain__info">
+							                					<p class="trainingItemMoreMain__info_name">Дмитрий Степанов</p>
+							                					<p class="trainingItemMoreMain__info_job">Направление: Бассейн</p>
+							                					<p class="trainingItemMoreMain__info_place">
+							                						<span class="fa fa-map-marker"></span>
+							                						бассейн
+							                					</p>
+																
+							                				</div>
+							                			</div>
+							                			<div class="trainingItemMore__btns">
+							                				<button class="trainingItemMore__btns_btn active">О занятии</button>
+							                				<button class="trainingItemMore__btns_btn">Об инструкторе</button>
+							                			</div>
+							                			<div class="trainingItemMore__text active">
+							                				<p><span data-mce-style="font-family: Symbol;mso-fareast-font-family: Symbol;mso-bidi-font-family: Symbol;" style="color: rgb(0, 0, 0); text-align: justify; font-family: Symbol;"><span data-mce-style="mso-list: Ignore;"><span data-mce-style="font: 7.0pt 'Times New Roman';" style="font-variant-numeric: normal; font-variant-east-asian: normal; font-stretch: normal; font-size: 7pt; line-height: normal; font-family: &quot;Times New Roman&quot;;">&nbsp;</span></span></span><strong style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">Aqua Good Morning:</strong><span class="apple-converted-space_mailru_css_attribute_postfix" style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">урок для тренировки основных мышечных групп. Способствует поднятию тонуса и придает заряд энергии. Нагрузка средней интенсивности.</span><br></p>
+							                			</div>
+							                			<div class="trainingItemMore__text">
+							                				<p>Персональный тренер по плаванию и аквааэробике<br></p><p>Выпускник Ргуфксмит ГЦОЛИФК&nbsp;</p><p>КАНДИДАТ В МАСТЕРА СПОРТА ПО ПЛАВАНИЮ&nbsp;</p><p>Мастер спорта по подводному плаванию&nbsp;</p><p>призер&nbsp; ПМО , ЧМО&nbsp;</p><p>призер чемпионата Ливана по плаванию&nbsp;&nbsp;</p><p>Обучению плавания детей и взрослых.</p><p>Совершенствование техники плавания&nbsp;</p><p>Опыт Работы : 10 лет&nbsp;</p><p>5 из которых заграницей Ливан Бейрут</p>
+							                			</div>
+							                																					
+																					                					                		
+													</div>
+							                	</div>
+							                </div>
+							            </div>
+							            
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="11:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 11:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="12:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 12:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="13:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 13:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										    							            <div class="trainingItem" data-section="43">
+							                <div class="trainingItem__wrapper">
+							                    <h2 class="trainingItem__title">Aqua Upper Body
+								                    
+							                								                	</h2>
+							                    <p class="trainingItem__trainer">Дмитрий Степанов</p>
+							                    <p class="trainingItem__time">13:15-14:00</p>
+							                    <p class="trainingItem__gym">бассейн</p>
+							                    		
+							                </div>
+							                		
+							                <div class="trainingItemMore">
+							                	<div class="trainingItemMore__wrapper">
+							                		<div class="trainingItemMore__content">
+							                			<div class="trainingItemMore__close"></div>
+							                			<p class="trainingItemMore__title">
+							                				Aqua Upper Body
+							                			</p>
+							                			<p class="trainingItemMore__time">
+							                				<span class="trainingItemMore__time_time">Время тренировки: 13:15 - 14:00</span>
+							                			</p>
+							                				
+							                			</p>
+							                			<div class="trainingItemMoreMain">
+							                				<div class="trainingItemMoreMain__img"> 
+							                					<img class="trainingItemMoreMain__img_img" src="../images/1729239882.jpg" alt="Тренер">
+							                				</div>
+							                				<div class="trainingItemMoreMain__info">
+							                					<p class="trainingItemMoreMain__info_name">Дмитрий Степанов</p>
+							                					<p class="trainingItemMoreMain__info_job">Направление: Бассейн</p>
+							                					<p class="trainingItemMoreMain__info_place">
+							                						<span class="fa fa-map-marker"></span>
+							                						бассейн
+							                					</p>
+																
+							                				</div>
+							                			</div>
+							                			<div class="trainingItemMore__btns">
+							                				<button class="trainingItemMore__btns_btn active">О занятии</button>
+							                				<button class="trainingItemMore__btns_btn">Об инструкторе</button>
+							                			</div>
+							                			<div class="trainingItemMore__text active">
+							                				<p><b><span style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">Aqua Upper Body</span><span style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">:</span></b><span class="apple-converted-space_mailru_css_attribute_postfix" style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">урок направленный на проработку мышц брюшного пресса и верхней части тела. Нагрузка средней интенсивности.</span><br></p>
+							                			</div>
+							                			<div class="trainingItemMore__text">
+							                				<p>Персональный тренер по плаванию и аквааэробике<br></p><p>Выпускник Ргуфксмит ГЦОЛИФК&nbsp;</p><p>КАНДИДАТ В МАСТЕРА СПОРТА ПО ПЛАВАНИЮ&nbsp;</p><p>Мастер спорта по подводному плаванию&nbsp;</p><p>призер&nbsp; ПМО , ЧМО&nbsp;</p><p>призер чемпионата Ливана по плаванию&nbsp;&nbsp;</p><p>Обучению плавания детей и взрослых.</p><p>Совершенствование техники плавания&nbsp;</p><p>Опыт Работы : 10 лет&nbsp;</p><p>5 из которых заграницей Ливан Бейрут</p>
+							                			</div>
+							                																					
+																					                					                		
+													</div>
+							                	</div>
+							                </div>
+							            </div>
+							            
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										    							            <div class="trainingItem" data-section="44">
+							                <div class="trainingItem__wrapper">
+							                    <h2 class="trainingItem__title">Aqua Tone
+								                    
+							                								                	</h2>
+							                    <p class="trainingItem__trainer">Дмитрий Степанов</p>
+							                    <p class="trainingItem__time">13:15-14:00</p>
+							                    <p class="trainingItem__gym">бассейн</p>
+							                    		
+							                </div>
+							                		
+							                <div class="trainingItemMore">
+							                	<div class="trainingItemMore__wrapper">
+							                		<div class="trainingItemMore__content">
+							                			<div class="trainingItemMore__close"></div>
+							                			<p class="trainingItemMore__title">
+							                				Aqua Tone
+							                			</p>
+							                			<p class="trainingItemMore__time">
+							                				<span class="trainingItemMore__time_time">Время тренировки: 13:15 - 14:00</span>
+							                			</p>
+							                				
+							                			</p>
+							                			<div class="trainingItemMoreMain">
+							                				<div class="trainingItemMoreMain__img"> 
+							                					<img class="trainingItemMoreMain__img_img" src="../images/1729239882.jpg" alt="Тренер">
+							                				</div>
+							                				<div class="trainingItemMoreMain__info">
+							                					<p class="trainingItemMoreMain__info_name">Дмитрий Степанов</p>
+							                					<p class="trainingItemMoreMain__info_job">Направление: Бассейн</p>
+							                					<p class="trainingItemMoreMain__info_place">
+							                						<span class="fa fa-map-marker"></span>
+							                						бассейн
+							                					</p>
+																
+							                				</div>
+							                			</div>
+							                			<div class="trainingItemMore__btns">
+							                				<button class="trainingItemMore__btns_btn active">О занятии</button>
+							                				<button class="trainingItemMore__btns_btn">Об инструкторе</button>
+							                			</div>
+							                			<div class="trainingItemMore__text active">
+							                				<p><span style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;"><b>Aqua Tone:</b></span><span class="apple-converted-space_mailru_css_attribute_postfix" style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">&nbsp;</span><span style="color: rgb(0, 0, 0); font-family: Arial, Tahoma, Verdana, sans-serif; text-align: justify;">силовой урок для развития мышц с применением аква-гантелей.</span><br></p>
+							                			</div>
+							                			<div class="trainingItemMore__text">
+							                				<p>Персональный тренер по плаванию и аквааэробике<br></p><p>Выпускник Ргуфксмит ГЦОЛИФК&nbsp;</p><p>КАНДИДАТ В МАСТЕРА СПОРТА ПО ПЛАВАНИЮ&nbsp;</p><p>Мастер спорта по подводному плаванию&nbsp;</p><p>призер&nbsp; ПМО , ЧМО&nbsp;</p><p>призер чемпионата Ливана по плаванию&nbsp;&nbsp;</p><p>Обучению плавания детей и взрослых.</p><p>Совершенствование техники плавания&nbsp;</p><p>Опыт Работы : 10 лет&nbsp;</p><p>5 из которых заграницей Ливан Бейрут</p>
+							                			</div>
+							                																					
+																					                					                		
+													</div>
+							                	</div>
+							                </div>
+							            </div>
+							            
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="14:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 14:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="15:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 15:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="16:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 16:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="17:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 17:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="18:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 18:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="19:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 19:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="20:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 20:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="21:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 21:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+														<tr data-label="22:00" class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 22:00 </td>
+							    							    <td data-label="Понедельник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Вторник"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Среда"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Четверг"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Пятница"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Суббота"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							    <td data-label="Воскресенье"" class="scheduleBody__item mobile-d-none">
+							        <div class="scheduleBody__item_wrapper">
+								        										<div class="trainingItem">
+							                <div class="trainingItem__empty">
+										    </div>
+										</div>
+																	        </div>
+							    </td>
+							    							</tr>
+													</tbody>
+					</table>
+					<table class="schedule">
+						<thead class="scheduleHead">
+							<tr class="scheduleHead__row">
+								<th class="scheduleHead__item time"><span class="fa fa-clock-o"></span></th>
+								<th class="scheduleHead__item today">Понедельник</th>
+								<th class="scheduleHead__item">Вторник</th>
+								<th class="scheduleHead__item">Среда</th>
+								<th class="scheduleHead__item">Четверг</th>
+								<th class="scheduleHead__item">Пятница</th>
+								<th class="scheduleHead__item">Суббота</th>
+								<th class="scheduleHead__item">Воскресенье</th>
+							</tr>
+						</thead>
+						<tbody class="scheduleBody">
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 8:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 9:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 10:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 11:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 12:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 13:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 14:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 15:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 16:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 17:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 18:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 19:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 20:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 21:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+														<tr class="scheduleBody__row">
+							    <td class="scheduleBody__item time"> 22:00 </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							    <td class="scheduleBody__item">
+							        <div class="scheduleBody__item_wrapper">
+							            							        </div>
+							    </td>
+							    							</tr>
+													</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script>
+function updateParticipants(event) {
+    const selectElement = event.target; // получаем элемент, на котором произошел выбор
+    const count = selectElement.value;  // получаем значение выбранного количества участников
+    const parentDiv = selectElement.closest('form'); // находим родительский блок формы
+    const participantsDiv = parentDiv.querySelector('#participants'); // находим нужный div для каждого блока отдельно
+
+    participantsDiv.innerHTML = ''; // очищаем предыдущие поля
+
+    for (let i = 0; i < count; i++) {
+        participantsDiv.innerHTML += `
+            <div class="participant-row">
+                <label class="font-normal fioLabel">${i + 1}:</label>
+                <input type="text" name="registeredList[${i}]" class="form-control registrationInput" value="" required readonly>
+            </div>`;
+    }
+}
+
+// Привязываем обработчик события на изменение к каждому select
+document.querySelectorAll('#new_count').forEach(select => {
+    select.addEventListener('change', updateParticipants);
+});
+</script>
+
+
+<!--
+		<script type="text/javascript">
+  		// Находим все элементы времени
+			
+			var isClickListenerAdded = false;			
+			function toggleDetails(element) {
+				if(!isMobile()) {
+					return;
+				}
+				element.classList.toggle('timeActive');
+		    // Находим следующие соседние ячейки (дни недели) относительно элемента времени
+		    var days = [];
+		    var nextElement = element.nextElementSibling;
+		    // Получаем следующие 7 соседей вниз
+		    for (var i = 0; i < 7; i++) {
+		        if (nextElement) {
+		            days.push(nextElement);
+		            nextElement = nextElement.nextElementSibling;
+		        } else {
+		            break; // Если достигнут конец таблицы, прекращаем добавление дней
+		        }
+		    }
+		    // Проходимся по найденным дням недели и переключаем видимость
+		    days.forEach(function(day) {
+		        // Если день невидим, показываем его, иначе скрываем
+		        if (day.style.display === 'none' || !day.style.display) {
+		            day.style.display = 'block';
+					day.classList.toggle('active');
+
+		        } else {
+		            day.style.display = 'none';
+		            day.classList.toggle('active');
+		        }
+		    });
+			}
+			function isMobile() {
+			    return window.innerWidth < 600; // Возвращает true, если ширина экрана меньше 600px
+			}
+			// Проверяем ширину экрана при загрузке страницы
+			window.addEventListener('load', function() {
+			    if (isMobile()) {
+			        // Если ширина экрана меньше 600px, то выполняем JavaScript
+			        var timeElements = document.querySelectorAll('.scheduleBody__item.time');
+			        if(!isClickListenerAdded) {
+				      timeElements.forEach(function(element) {
+						 element.addEventListener('click', function() {
+			                toggleDetails(element);
+			            	});
+			        	});
+			        isClickListenerAdded = true;
+			        }
+			       
+			    }
+			});
+			
+			
+			// Проверяем ширину экрана при изменении размера окна
+			window.addEventListener('resize', function() {
+				
+			    if (isMobile()) {
+			        var timeElements = document.querySelectorAll('.scheduleBody__item.time');
+			        if(!isClickListenerAdded) {
+				      timeElements.forEach(function(element) {
+						 element.addEventListener('click', function() {
+			                toggleDetails(element);
+			            	});
+			        	});
+			        isClickListenerAdded = true;
+			        }
+			    } else {
+				    if(isClickListenerAdded){
+					    console.log('isClickListenerAdded');
+					    document.querySelectorAll('.scheduleBody__item:not(.time)').forEach(item => {
+						    item.style.removeProperty('display');
+						    item.classList.remove('active');
+						});
+					}
+			    }			    
+			});
+
+</script>
+-->
+	
+		<form class="card" method="POST">
+	<div class="card__inner">
+		<img class="card__img" src="../img/card.png" alt="Карта">
+		<div class="card__info">
+			<p class="card__title">Посетить клуб</p>
+			<p class="card__text">
+				Пожалуйста, заполните форму, наш<br>менеджер свяжется с вами.
+				<br>
+				<span class="card__agreement">
+					<input type="checkbox" checked required>
+					Продолжая оформление заявки, даю <span class="card__privacy">согласие на обработку персональных данных.</span>
+				</span>
+			</p>
+			<div class="card__inputs">
+				<input class="card__inputs-name" type="text" placeholder="Имя Фамилия" required>
+				<input class="card__inputs-phone js-phone" type="tel" placeholder="Телефон" required>
+				<button class="card__inputs-btn">Отправить</button>
+			</div>
+		</div>
+	</div>
+</form>		<footer class="footer">
+	<div class="footer__inner">
+		<div class="footer__top">
+			<div class="f-logo">
+				<img class="f-logo__img footer__logo" src="../img/logo.png" alt="Логотип">
+			</div>
+			<div class="footer__info">
+				<p class="f-address footer__address">ул. Крылатские Холмы, 35, Москва</p>
+				<p class="f-phone footer__phone">
+					<a class="f-phone__link" href="tel:+74954154010">
+						8 (495) 415-40-10
+					</a>
+				</p>
+			</div>
+			<div class="f-networks footer__networks">
+				<a class="f-networks__item" href="https://vk.com/lacollina" target="_blank">
+					<span class="fa fa-vk"></span>
+				</a>
+				</div>
+			<div class="f-application footer__application">
+				<button class="f-application__btn">Онлайн заявка</button>
+			</div>
+		</div>
+		<div class="f-nav">
+			<div class="f-nav__main">
+				<a class="f-nav__main-item" href="../index.html">Главная</a>
+				<a class="f-nav__main-item" href="1.html">Расписание</a>
+				<a class="f-nav__main-item" href="../trainers.html">Тренеры</a>
+				<a class="f-nav__main-item" href="../cards.html">Клубные карты</a>
+				<a class="f-nav__main-item" href="../contacts.html">Контакты</a>
+			</div>
+			<div class="f-nav__service">
+				<a class="f-nav__service-title" href="../info.html">О нас</a>
+				<a class="f-nav__service-item" href="../info.html">Информация о клубе</a>
+				<a class="f-nav__service-item" href="../news.html">Новости</a>
+				<a class="f-nav__service-item" href="../rules.html">Правила клуба</a>
+				<a class="f-nav__service-item" href="../vacancy.html">Вакансии</a>
+			</div>
+			<div class="f-nav__service">
+				<a class="f-nav__service-title" href="../gym.html">Услуги</a>
+				<a class="f-nav__service-item" href="../gym.html">Тренажерный зал</a>
+				<a class="f-nav__service-item" href="../pool.html">Бассейн</a>
+				<a class="f-nav__service-item" href="../group.html">Групповые тренировки</a>
+				<a class="f-nav__service-item" href="../children.html">Детский клуб</a>
+				<a class="f-nav__service-item" href="../beauty.html">Студия красоты</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<form class="modal modal_online-application">
+	<div class="modal__inner">
+		<div class="online-application modal__cont">
+			<div class="online-application__close modal__close"></div>
+			<p class="online-application__title">Оставить заявку</p>
+			<p class="online-application__text">
+				Мы перезвоним вам в течении 20 минут и ответим на все интересующие Вас вопросы.
+			</p>
+			<div class="online-application__main">
+				<p class="online-application__input-wrapper">
+					<input class="online-application__input" type="text" placeholder="Имя Фамилия" required>
+				</p>
+				<p class="online-application__input-wrapper">
+					<input class="online-application__input js-phone" type="tel" placeholder="Ваш телефон" required>
+				</p>
+				<p class="online-application__input-wrapper">
+					<input class="online-application__input" type="email" placeholder="Ваш E-mail" required>
+				</p>
+				<label class="online-application__agreement">
+					<input type="checkbox" checked required>
+					Продолжая оформление заявки, даю согласие <span class="online-application__privacy js-show-privacy">на обработку персональных данных.</span>
+				</label>
+				<p class="online-application__send-wrapper">
+					<button class="online-application__send">Отправить</button>	
+				</p>
+			</div>
+		</div>
+	</div>
+</form>
+<div class="modal modal_privacy">
+	<div class="modal__inner">
+		<div class="privacy modal__cont">
+			<div class="privacy__close modal__close"></div>
+			<p class="privacy__title">
+				Согласие на обработку персональных данных
+			</p>
+			<p class="privacy__text">
+				Настоящим я даю свое согласие на обработку ООО «ФИТНЕС НА ХОЛМАХ» ОГРН 1207700152219
+				, 121614, г. Москва, ул. Крылатские холмы, д. 35 (далее
+				по тексту — «Компания») моих персональных данных и подтверждаю,
+				что давая такое согласие, я действую своей волей и в своем интересе.
+				Согласие распространяется на информацию, вводимую в полях
+				регистрации данного сайта Компании (имя, фамилия, e-mail, номер
+				телефона). Согласие на обработку персональных данных дается мною
+				в целях получения услуг, оказываемых Компанией.
+				Обработка персональных данных осуществляется Компанией
+				следующими способами: обработка персональных данных
+				с использованием средств автоматизации, обработка персональных
+				данных без использования средств автоматизации
+				(неавтоматизированная обработка). При обработке персональных
+				данных Компания не ограничена в применении способов их обработки.
+				Согласие предоставляется на осуществление любых действий
+				в отношении персональных данных, которые необходимы для
+				достижения вышеуказанных целей, включая без ограничения: сбор,
+				систематизацию, накопление, хранение, уточнение (обновление,
+				изменение), использование, распространение (в том числе передача),
+				обезличивание, блокирование, уничтожение, а также осуществление
+				любых иных действий с персональными данными в соответствии
+				с действующим законодательством. Настоящим я признаю
+				и подтверждаю, что в случае необходимости предоставления
+				персональных данных для достижения указанных выше целей
+				третьему лицу, а равно как при привлечении третьих лиц к оказанию
+				услуг в указанных целях, передаче Компанией принадлежащих
+				ей функций и полномочий иному лицу, Компания вправе
+				в необходимом объеме раскрывать для совершения вышеуказанных
+				действий информацию обо мне лично таким третьим лицам,
+				их агентам и иным уполномоченным ими лицам, а также
+				предоставлять таким лицам соответствующие документы,
+				содержащие такую информацию. Также настоящим признаю
+				и подтверждаю, что настоящее согласие считается данным мною
+				любым третьим лицам, указанным выше, с учетом соответствующих
+				изменений, и любые такие третьи лица имеют право на обработку
+				персональных данных на основании настоящего согласия. Настоящее
+				согласие дается мною бессрочно, но может быть отозвано
+				посредством направления мною письменного уведомления Компании
+				не менее чем за 1 (один) месяц до момента отзыва согласия.
+			</p>
+		</div>
+	</div>
+</div>
+<style>
+	.whatsapp_ico {
+		display: none;
+		position: fixed;
+		z-index: 1;
+		right: 26px;
+		bottom: 100px;
+	}
+	.whatsapp_ico img {
+		width: 62px;
+		height: 62px;
+		margin-bottom: 5px;
+	}
+	@media (max-width: 750px) {
+		.whatsapp_ico {
+			display: none;
+		}
+	}
+	.new-black .h-application__btn{
+		color: inherit;
+		background-color: initial;
+		/*background-color: black;*/
+		width: 130px;
+		height: 35px;
+		font-weight: 700;
+		font-family: main,Helvetica,Arial,sans-serif;
+		font-size: 15px;
+		letter-spacing: .7px;
+		-webkit-transition: .3s;
+		-o-transition: .3s;
+		transition: .3s;
+		cursor: pointer;
+		outline: 0;
+		display: none;
+	}
+	.new-black-all-page .h-application__btn{
+		color: #ffa9c1;
+		display: none;
+	}
+	.new-black-all-page .h-application__btn:hover{
+		color: white
+	}
+	.header_scrolled .new-black-all-page .h-application__btn{
+		color: white;
+		background-color: black;
+		width: 146px;
+		height: 30px;
+		/* border-right: 73px; */
+		padding: 1px 0px 1px 0px;
+		display: block;
+		margin-left: 10px;
+
+	}
+	.header_scrolled .h-logo__img{
+		margin-top: -3px;
+	}
+	.h-menu_scrolled .new-black .h-application__btn{
+		color: white;
+		background-color: black;
+		width: 146px;
+		padding: 1px 0px 1px 0px;
+		margin-left:10px;
+		display: block;
+
+	}
+	.h-application__btn:hover{
+		background-color: black;
+		color: white;
+	}
+	.h-menu-m .new-black .h-application__btn{
+		display: none;
+	}
+	
+	.slider-item__img{
+		min-height:inherit;
+	}
+	</style>
+<div class="whatsapp_ico">
+	<a href="https://api.whatsapp.com/send?phone=79035690317"><img src="../images/whatsapp.png"></a>
+</div>
+<script src="../js/vendor.bundle.js" defer></script>
+<script src="../js/main.bundle.js" defer></script>
+	</div>
+</body>
+</html>
